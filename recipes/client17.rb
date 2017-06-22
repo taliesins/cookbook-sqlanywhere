@@ -32,7 +32,7 @@ remote_file download_path do
 end
 
 execute 'extract_sqlanywhereclient' do
-  command "#{File.join(node['seven_zip']['home'], '7z.exe')} x -y -o\"#{winfriendly_extract_path}\" #{download_path}"
+  command "\"#{File.join(node['seven_zip']['home'], '7z.exe')}\" x -y -o\"#{winfriendly_extract_path}\" #{download_path}"
   only_if {!(::File.directory?(download_path)) }
 end
 
