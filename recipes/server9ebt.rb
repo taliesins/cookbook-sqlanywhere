@@ -17,7 +17,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-include_recipe '7-zip'
+include_recipe 'seven_zip'
 
 ::Chef::Recipe.send(:include, Windows::Helper)
 filename = File.basename(node['sqlanywhere']['server9ebt']['url']).downcase
@@ -33,7 +33,7 @@ remote_file download_path do
 end
 
 execute 'extract_sqlanywhereclient' do
-  command "#{File.join(node['7-zip']['home'], '7z.exe')} x -y -o\"#{winfriendly_extract_path}\" #{download_path}"
+  command "#{File.join(node['seven_zip']['home'], '7z.exe')} x -y -o\"#{winfriendly_extract_path}\" #{download_path}"
   only_if {!(::File.directory?(download_path)) }
 end
 

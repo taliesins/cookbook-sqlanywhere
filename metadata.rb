@@ -10,7 +10,7 @@ version          '0.1.0'
   supports os
 end
 
-depends 		 '7-zip'
+depends 		 'seven_zip'
 depends          'windows', '>= 1.2.6'
 
 provides 'client::17'
